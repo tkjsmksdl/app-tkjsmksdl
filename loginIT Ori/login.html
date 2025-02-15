@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>IT CLINIC - WIFI</title>
+    <script src="typed.js"></script>
+  </head>
+  <body>
+    
+$(if chap-id)
+<form name="sendin" action="$(link-login-only)" method="post">
+  <input type="hidden" name="username" />
+  <input type="hidden" name="password" />
+  <input type="hidden" name="dst" value="$(link-orig)" />
+  <input type="hidden" name="popup" value="true" />
+</form>
+
+<script type="text/javascript" src="/md5.js"></script>
+<script type="text/javascript">
+<!--
+    function doLogin() {
+  document.sendin.username.value = document.login.username.value;
+  document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+  document.sendin.submit();
+  return false;
+    }
+//-->
+</script>
+$(endif)
+
+    <div class="container">
+      <div class="login">
+        <div class="wrap" style="z-index: 200">
+          <div class="header">
+            <div class="gambar">
+              <img src="img/logoitclinik.jpg" alt="logo_it_clinic" />
+            </div>
+            <div class="text">
+              <h1>IT CLINIC</h1>
+              <h4 style="font-size: 14px; margin-top: 5px">
+                Memberi Solusi Masalah IT
+              </h4>
+              <h5 style="font-size: 10px">SMK SUNAN DRAJAT LAMONGAN</h5>
+            </div>
+          </div>
+          <div class="formulir">
+            <form name="login" action="$(link-login-only)" method="post"
+                $(if chap-id) onSubmit="return doLogin()" $(endif)>
+                <input type="hidden" name="dst" value="$(link-orig)" />
+                <input type="hidden" name="popup" value="true" />
+                
+              <label for="username">
+                <img src="img/username.png" alt="" />
+                <input id="username" name="username" type="text" value="$(username)" required />
+                <span>Username</span>
+              </label>
+              <label for="password">
+                <img src="img/password.png" alt="" />
+                <input name="password" type="password" id="password" required />
+                <span>Password</span>
+              </label>
+              <div class="submitBox">
+                <div class="icon">
+                  <img src="img/sumbit.png" alt="" />
+                </div>
+                <div class="button">
+                  <input type="submit" value="Connect" />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="container_character">
+        <div class="wrap">
+          <div class="text" id="typed-strings">
+            <h1 id="typed"></h1>
+            <span id="typed2"></span>
+          </div>
+
+          <div class="gambar">
+            <img src="img/character2.png" alt="" class="character2" />
+            <img src="img/character1.png" alt="" class="character1" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- javasript -->
+    <script>
+      var typed = new Typed("#typed", {
+        strings: [`<h1>selamat datang di IT CLINIC HOTSPOT</h1>`],
+        typeSpeed: 100,
+        loop: false,
+      });
+
+      var typed2 = new Typed("#typed2", {
+        strings: [
+          `<span>Melayani :</span>`,
+          `<span>Melayani :</span> Service Laptop`,
+          `<span>Melayani :</span> Service Komputer`,
+          `<span>Melayani :</span> Service Printer`,
+          `<span>Melayani :</span> Upgrade Laptop`,
+          `<span>Melayani :</span> Upgrade Komputer`,
+          `<span>Melayani :</span> Pembelian Asesoris laptop`,
+          `<span>Melayani :</span> Pembelian Asesoris Komputer`,
+          `<span>Melayani :</span> Voucher Internet`,
+        ],
+        smartBackspace: true,
+        typeSpeed: 50,
+        loop: true,
+      });
+
+      const colors = ["var(--white)", "var(--blue)", "var(--orange)"];
+
+      const container = document.querySelector(".container");
+      console.log(container);
+      let index = 0;
+      setInterval(() => {
+        if (index > 3) {
+          index = 0;
+        }
+        container.style.backgroundColor = `${colors[index]}`;
+        index++;
+      }, 3000);
+    </script>
+    
+  <script type="text/javascript">
+    document.login.username.focus();
+  </script>
+  $(if error)
+    <script>
+    alert("$(error)");
+    </script>
+  $(endif)
+  </body>
+</html>

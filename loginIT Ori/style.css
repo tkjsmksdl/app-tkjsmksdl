@@ -1,0 +1,292 @@
+@font-face {
+  font-family: poppins;
+  src: url(font/Poppins-Regular.otf);
+}
+@font-face {
+  font-family: Muller;
+  src: url(font/Muller.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  --black: #1e1e1e;
+  --white: #fefefe;
+  --blue: #2187ff;
+  --orange: #ff6600;
+  font-family: poppins;
+}
+
+body {
+  background-color: #f9f8f8;
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+  padding: 40px;
+  transition: all 0.4s;
+}
+
+.login {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 9999;
+}
+
+.login .wrap {
+  width: 390px;
+  height: 410px;
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 15px;
+  animation: jump 4s linear infinite;
+  position: relative !important;
+  z-index: 1000;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* header */
+
+.login .header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.login .header text {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.login .header .text h1 {
+  font-family: Muller;
+  font-weight: lighter;
+}
+
+.login .header .gambar img {
+  aspect-ratio: 1 / 1;
+  width: 120px;
+}
+
+/* akhir Header */
+
+/* formulir */
+
+.formulir form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formulir form label {
+  margin-top: 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-bottom: 2px solid var(--blue);
+  width: 80%;
+}
+.formulir form label img {
+  aspect-ratio: 1/1;
+  width: 30px;
+}
+.formulir form label input {
+  outline: none;
+  border: none;
+  width: 100%;
+}
+
+.formulir form label input:focus + span,
+.formulir form label input:valid + span {
+  font-size: 10px;
+  top: -10px;
+  font-weight: bold;
+}
+
+.formulir form label span {
+  top: 4px;
+  position: absolute;
+  left: 40px;
+  font-size: 15px;
+  font-weight: normal;
+  transition: all 0.3s;
+}
+
+.formulir .submitBox {
+  margin-top: 50px;
+  height: 40px;
+  width: 125px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+}
+.formulir .submitBox .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+  background-color: var(--orange);
+  border-radius: 4px 0 0 4px;
+  box-shadow: 0 4px 0 0.1px #e05d05, 0 5px 4px rgba(0, 0, 0, 0.3);
+  transform: translateY(0);
+  transition: all 0.2s;
+}
+
+.formulir .submitBox:active .icon,
+.formulir .submitBox:active .button {
+  box-shadow: none;
+  transform: translateY(4px);
+}
+
+.formulir .submitBox .icon img {
+  aspect-ratio: 1/1;
+  width: 20px;
+  color: aliceblue;
+}
+
+.formulir .submitBox .button {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 2;
+  background-color: var(--blue);
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 4px 0 0.1px #1777e4, 0 5px 4px rgba(0, 0, 0, 0.4);
+  cursor: pointer !important;
+  transform: translateY(0);
+  transition: all 0.2s;
+  z-index: 100;
+}
+
+.formulir .submitBox .button input {
+  height: 100%;
+  outline: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background: transparent;
+}
+
+/* character */
+.container_character {
+  flex: 1;
+  height: 410px;
+  display: flex;
+  flex-direction: column;
+  animation: showin 0.2s ease-in-out;
+}
+.container_character .text #typed {
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+.container_character .wrap {
+  position: relative;
+  left: 0;
+}
+
+.container_character .gambar {
+  margin-top: 40px;
+  position: relative;
+}
+
+.container_character img {
+  width: 300px;
+  height: 200px;
+}
+
+.container_character .character2 {
+  position: absolute;
+  scale: 2;
+  margin-left: 80px;
+}
+.container_character .character1 {
+  position: absolute;
+  top: 120px;
+  left: 0;
+  transform: rotateY(180deg);
+  scale: 0.9;
+  width: 270px;
+}
+
+@media only screen and (max-width: 992px) {
+  .container_character img {
+    width: 280px;
+    height: 180px;
+  }
+}
+
+@media only screen and (max-width: 820px) {
+  .container {
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5px;
+    min-height: 130vh !important;
+    background-color: #1777e4;
+  }
+
+  .login {
+    justify-content: center;
+    align-items: start;
+    justify-content: flex-start;
+  }
+
+  .login .wrap {
+    width: 360px;
+  }
+
+  .container_character {
+    width: 350px;
+    margin-top: 50px;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .login .wrap {
+    width: 300px;
+  }
+}
+
+/* animation */
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes showin {
+  0% {
+    transform: translate(15px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
